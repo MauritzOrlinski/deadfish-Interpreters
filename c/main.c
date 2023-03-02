@@ -2,7 +2,8 @@
 #include "string.h"
 
 int main(int argc, char **argv) {
-    if (!(argc <= 3 && argv[2][0] == 's')) {
+    printf("%i \n", argc);
+    if (argc != 2 && argc != 3) {
         printf("Illegal program arguments");
         return -1;
     }
@@ -18,10 +19,10 @@ int main(int argc, char **argv) {
         } else if (argv[1][i] == 's') {
             counterStorage *= counterStorage;
         } else if (argv[1][i] == 'o') {
-            if (argv[2][0] == '0') {
-                printf("%i ", counterStorage);
-            } else if (argv[2][0] == '1') {
+            if (argc == 3 && strcmp(argv[2], "-s") == 0) {
                 printf("%c", counterStorage);
+            } else {
+                printf("%i ", counterStorage);
             }
         } else {
             printf("Illegal Symbol: %c noticed", argv[1][i]);
