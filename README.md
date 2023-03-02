@@ -1,5 +1,5 @@
-# c-deadfish-interpreter
-This is an interpreter for the Deadfish programming language. 
+# deadfish-interpreters
+This is a collection of interpreters for the Deadfish programming language. 
 
 ## What is Deadfish
 Deadfish is a programming language, with only four different operations, increasing, decreasing, squaring and outputting a number. It was created by Jonathan Todd Skinner 
