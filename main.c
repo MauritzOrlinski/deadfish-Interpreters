@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "string.h"
 
-
 int main(int argc, char **argv) {
     if (!(argc <= 3 && (argv[2][0] == '0' || argv[2][0] == '1'))) {
         printf("Illegal program arguments");
