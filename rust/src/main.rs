@@ -16,7 +16,6 @@ fn main() {
             counter = 0;
         }
 
-        //match char
         match word_vec[i] {
             'i' => counter += 1,
             'd' => counter -= 1,
