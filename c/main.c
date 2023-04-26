@@ -2,7 +2,6 @@
 #include "string.h"
 
 int main(int argc, char **argv) {
-    printf("%i \n", argc);
     if (argc != 2 && argc != 3) {
         printf("Illegal program arguments");
         return -1;
