@@ -1,9 +1,7 @@
 #!/bin/sh
 
-echo "Chose your desired interpreter:"
-echo "1) Python"
-echo "2) C"
-echo "3) Rust"
+printf "Chose your desired interpreter:"
+printf "1) Python \n2) C\n3) Rust\n4) Java\n"
 
 read -p "Enter your choice: " choice
 read -p "Enter your code: " code
@@ -12,25 +10,35 @@ read -p "Output as ASCII? (y/n): " ascii
 case $choice in
     1)
         if [ $ascii = "y" ]; then
-            echo $code | python python/main.py $code -s
+            printf $code | python python/main.py $code -s
         else
-            echo $code | python python/main.py $code
+            printf $code | python python/main.py $code
         fi
         ;;
     2)
         if [ $ascii = "y" ]; then
-            echo $code | gcc c/main.c -o c/main && ./c/main $code -s
+            printf $code | gcc c/main.c -o c/main && ./c/main $code -s
         else
-            echo $code | gcc c/main.c -o c/main && ./c/main $code
+            printf $code | gcc c/main.c -o c/main && ./c/main $code
         fi
         ;;
     3)
         if [ $ascii = "y" ]; then
-            echo $code | rustc rust/src/main.rs -o rust/src/main && ./rust/src/main $code -s
+            printf $code | rustc rust/src/main.rs -o rust/src/main && ./rust/src/main $code -s
         else
-            echo $code | rustc rust/src/main.rs -o rust/src/main && ./rust/src/main $code
+            printf $code | rustc rust/src/main.rs -o rust/src/main && ./rust/src/main $code
         fi
         ;;
+    4)
+	cd java
+	javac src/deadfish.java
+	if [ $ascii = "y" ]; then
+	    printf $code | java src.deadfish $code -s
+	else
+	    printf $code | java $code 
+	cd ..
+	fi
+	;;
     *)
         echo "Invalid choice"
         ;;
@@ -43,4 +51,9 @@ case $choice in
     3)
         rm rust/src/main
         ;;
+    4) 
+	rm src/deadfish.class
+	;;
 esac
+
+echo ""
